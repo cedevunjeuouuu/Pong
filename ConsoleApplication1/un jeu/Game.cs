@@ -27,7 +27,10 @@ namespace un_jeu
             paddle2 = new Paddle(width - 2, height, board1.Height);
             keyInfo = new ConsoleKeyInfo();
             consoleKey = new ConsoleKey();
-            ball = new Ball(width / 2, height / 2);
+            ball = new Ball(width / 2, height / 2, height, width);
+            ball.X = width / 2;
+            ball.Y = height / 2;
+            ball.direction = 0;
         }
 
         public void Input()
@@ -41,28 +44,33 @@ namespace un_jeu
 
         public void Run()
         {
+            
             Setup();
             while (true)
             {
                 Console.Clear();
                 board1.Write();
-                ball.Logic(paddle1, paddle2);
-                ball.Write();
                 Input();
                 switch (consoleKey)
                 {
                     case ConsoleKey.Z:
                         paddle1.up();
-                        paddle2.up();
                         break;
                     case ConsoleKey.E:
                         paddle1.down();
+                        break;
+                    case ConsoleKey.O:
+                        paddle2.up();
+                        break;
+                    case ConsoleKey.P:
                         paddle2.down();
                         break;
+                    
                 }
+                ball.Logic(paddle1, paddle2);
+                ball.Write();
                 paddle1.Write();
                 paddle2.Write();
-
                 consoleKey = ConsoleKey.A;
                 Thread.Sleep(10);
             }

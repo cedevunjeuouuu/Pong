@@ -20,7 +20,7 @@ namespace un_jeu
         
         public int direction ;
         
-        public Ball (int x, int y)
+        public Ball (int x, int y, int boardHeight, int boardWidht)
         {
             X = x;
             Y = y;
@@ -38,32 +38,57 @@ namespace un_jeu
             {
                 zwrotY *= -1;
             }
-            zwrotX *= 1;
-            if (Y == paddle1.Y)
+            if(((X==3|| X==boardWidht)&&(paddle1.Y - (paddle1.Lenght/2))<= Y && (paddle1.Y + (paddle1.Lenght/2)>Y)))
             {
-                direction = 0;
-            }
-
-            if (Y >= paddle1.Y - paddle1.Lenght / 2)
-            {
-                direction = 1;
-            }
-
-            if (X == 3 || X == boardWidht - 3)
-            {
-                if ((paddle1.Y - (paddle1.Lenght / 2)) > Y)
+                zwrotX *= -1;
+                if (Y == paddle1.Y)
                 {
-                    switch (direction)
-                    {
-                        case 0:
-                            X += zwrotX;
-                            Y += zwrotY;
-                            break;
-                    }
+                    direction = 0;
                 }
 
-
+                if ((Y >= (paddle1.Y - (paddle1.Lenght/2 )) && Y < paddle1.Y))
+                {
+                    direction = 2;
+                }
+                if(Y > paddle1.Y && Y < (paddle1.Y + (paddle1.Lenght/2 )))
+                {
+                    direction = 1;
+                }
             }
+            if(((X==boardWidht - 3|| X==boardWidht)&&(paddle2.Y - (paddle2.Lenght/2))<= Y && (paddle2.Y + (paddle2.Lenght/2)>Y)))
+            {
+                zwrotX *= -1;
+                if (Y == paddle2.Y)
+                {
+                    direction = 0;
+                }
+
+                if ((Y >= (paddle2.Y - (paddle2.Lenght/2 )) && Y < paddle2.Y) )
+                {
+                    direction = 2;
+                }
+                if(Y > paddle2.Y && Y < (paddle2.Y + (paddle2.Lenght/2 )))
+                {
+                    direction = 1;
+                }
+            }
+            
+
+            switch (direction)
+                {
+                    case 0:
+                        X += zwrotX;
+                        break;
+                    case 1 :
+                        X += zwrotX;
+                        Y += zwrotY;
+                        break;
+                    case 2 :
+                        X += zwrotX;
+                        Y += -zwrotY;
+                        break;
+                }
+            
         }
 
         public void Write()
