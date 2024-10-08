@@ -1,0 +1,6 @@
+C:\Users\l.kominiarz\Work\Pong\ConsoleApplication1\un jeu\bin\Debug\un_jeu.exe
+C:\Users\l.kominiarz\Work\Pong\ConsoleApplication1\un jeu\bin\Debug\un_jeu.pdb
+C:\Users\l.kominiarz\Work\Pong\ConsoleApplication1\un jeu\obj\Debug\un jeu.csproj.AssemblyReference.cache
+C:\Users\l.kominiarz\Work\Pong\ConsoleApplication1\un jeu\obj\Debug\un jeu.csproj.CoreCompileInputs.cache
+C:\Users\l.kominiarz\Work\Pong\ConsoleApplication1\un jeu\obj\Debug\un_jeu.exe
+C:\Users\l.kominiarz\Work\Pong\ConsoleApplication1\un jeu\obj\Debug\un_jeu.pdb
