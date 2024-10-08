@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 
 namespace un_jeu
 {
@@ -72,7 +73,13 @@ namespace un_jeu
                     direction = 1;
                 }
             }
-            
+
+            if (X == 0 || X == 60)
+            {
+                Game pong = new Game(60, 20);
+                Thread.Sleep(5000);
+                pong.Run();
+            }
 
             switch (direction)
                 {
