@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 
 namespace un_jeu
@@ -12,20 +12,21 @@ namespace un_jeu
 
         int boardHeight;
         
-        public Paddle (int x, int y)
+        public Paddle (int x, int y, int boardHeight)
         {
             X = x;
             Y = boardHeight / 2;
             Lenght = boardHeight / 3;
+            this.boardHeight = boardHeight;
         }
 
         public void up()
         {
-            if ((Y - 1 - (Lenght / 2)) > 0)
+            if ((Y - 1 - (Lenght / 2)) != 0)
             {
                 Console.SetCursorPosition(X,(Y+ Lenght / 2)-1);
                 Console.Write("\0");
-                Y++;
+                Y--;
                 Write();
 
 
@@ -34,12 +35,15 @@ namespace un_jeu
         
         public void down()
         {
-            if ((Y - 1 - (Lenght / 2)) > 0)
+            if ((Y - 1 - (Lenght / 2)) != 14)
             {
-                Console.SetCursorPosition(X,(Y+ Lenght / 2)-1);
+                Console.SetCursorPosition(X,(Y + (Lenght / 2)-1));
                 Console.Write("\0");
-                Y--;
+                Y++;
                 Write();
+                
+                
+                
             }
         }
         

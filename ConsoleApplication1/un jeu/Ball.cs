@@ -32,34 +32,37 @@ namespace un_jeu
 
         public void Logic(Paddle paddle1, Paddle paddle2)
         {
-            Console.SetCursorPosition(X,Y);
+            Console.SetCursorPosition(X, Y);
             Console.Write("\0");
             if (Y <= 1 || Y >= boardHeight)
             {
                 zwrotY *= -1;
             }
-
-            if (((X == 3 || X == boardWidht - 3) && (paddle1.Y - (paddle1.Lenght / 2)) <= Y && (paddle1.Y + (paddle1.Lenght / 2)) > Y))
+            zwrotX *= 1;
+            if (Y == paddle1.Y)
             {
-                zwrotX *= 1;
-                if (Y == paddle1.Y)
+                direction = 0;
+            }
+
+            if (Y >= paddle1.Y - paddle1.Lenght / 2)
+            {
+                direction = 1;
+            }
+
+            if (X == 3 || X == boardWidht - 3)
+            {
+                if ((paddle1.Y - (paddle1.Lenght / 2)) > Y)
                 {
-                    direction = 0;
+                    switch (direction)
+                    {
+                        case 0:
+                            X += zwrotX;
+                            Y += zwrotY;
+                            break;
+                    }
                 }
 
-                if (Y >= paddle1.Y - paddle1.Lenght/2)
-                {
-                    direction = 1;
-                }
 
-                switch (direction)
-                {
-                   case 0:
-                       X += zwrotX;
-                       Y += zwrotY;
-                       break;
-                }
-                
             }
         }
 

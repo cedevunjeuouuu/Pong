@@ -13,7 +13,7 @@ namespace un_jeu
         private Ball ball;
         private ConsoleKeyInfo keyInfo;
         private ConsoleKey consoleKey;
-        
+
         public Game(int width, int height)
         {
             this.width = width;
@@ -23,11 +23,11 @@ namespace un_jeu
 
         public void Setup()
         {
-            paddle1 = new Paddle(2, height);
-            paddle2 = new Paddle(width - 2, height);
+            paddle1 = new Paddle(2, height, board1.Height);
+            paddle2 = new Paddle(width - 2, height, board1.Height);
             keyInfo = new ConsoleKeyInfo();
             consoleKey = new ConsoleKey();
-            ball = new Ball(width/2, height/2);
+            ball = new Ball(width / 2, height / 2);
         }
 
         public void Input()
@@ -41,32 +41,30 @@ namespace un_jeu
 
         public void Run()
         {
+            Setup();
             while (true)
             {
                 Console.Clear();
-                Setup();
                 board1.Write();
+                ball.Logic(paddle1, paddle2);
+                ball.Write();
+                Input();
+                switch (consoleKey)
+                {
+                    case ConsoleKey.Z:
+                        paddle1.up();
+                        paddle2.up();
+                        break;
+                    case ConsoleKey.E:
+                        paddle1.down();
+                        paddle2.down();
+                        break;
+                }
                 paddle1.Write();
                 paddle2.Write();
-                ball.Write();
-                while (true)
-                {
-                    Input();
-                    switch (consoleKey)
-                    {
-                        case ConsoleKey.Z :
-                            paddle1.up();
-                            paddle2.up();
-                            break;
-                        case ConsoleKey.S:
-                            paddle1.down();
-                            paddle2.down();
-                            break;
-                    }
-                    consoleKey = ConsoleKey.A;
-                    Thread.Sleep(100);
-                }
-                
+
+                consoleKey = ConsoleKey.A;
+                Thread.Sleep(10);
             }
         }
     }
