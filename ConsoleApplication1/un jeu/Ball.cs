@@ -77,7 +77,7 @@ namespace un_jeu
             if (X == 0 || X == 60)
             {
                 Game pong = new Game(60, 20);
-                Thread.Sleep(5000);
+                Thread.Sleep(3000);
                 pong.Run();
             }
 
