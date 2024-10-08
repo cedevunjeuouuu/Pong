@@ -7,13 +7,19 @@ namespace un_jeu
     {
         public int X { set; get; }
         public int Y { set; get; }
+        
         int zwrotX;
+        
         int zwrotY;
+        
         int i;
+        
         int boardHeight;
+        
         int boardWidht;
         
-        public int direction {set;get;}
+        public int direction ;
+        
         public Ball (int x, int y)
         {
             X = x;
