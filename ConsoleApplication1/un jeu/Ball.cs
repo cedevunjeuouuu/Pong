@@ -14,9 +14,9 @@ namespace un_jeu
         
         int i;
         
-        int boardHeight;
+        public int boardHeight;
         
-        int boardWidht;
+        public int boardWidht;
         
         public int direction ;
         
