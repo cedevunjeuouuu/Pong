@@ -21,7 +21,7 @@ namespace un_jeu
 
         public void up()
         {
-            if ((Y - 1 - (Lenght / 2)) != 0)
+            if ((Y - 1 - (Lenght / 2)) > 0)
             {
                 Console.SetCursorPosition(X,(Y+ Lenght / 2)-1);
                 Console.Write("\0");
@@ -34,14 +34,12 @@ namespace un_jeu
         
         public void down()
         {
-            if ((Y - 1 - (Lenght / 2)) != 0)
+            if ((Y - 1 - (Lenght / 2)) > 0)
             {
                 Console.SetCursorPosition(X,(Y+ Lenght / 2)-1);
                 Console.Write("\0");
                 Y--;
                 Write();
-
-
             }
         }
         
