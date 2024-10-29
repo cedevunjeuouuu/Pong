@@ -42,8 +42,6 @@ namespace un_jeu
                 Y++;
                 Write();
                 
-                
-                
             }
         }
         

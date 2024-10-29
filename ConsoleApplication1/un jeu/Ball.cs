@@ -105,7 +105,5 @@ namespace un_jeu
             Console.Write("■");
             Console.ForegroundColor = ConsoleColor.White;
         }
-        
     }
-   
 }
